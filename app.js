@@ -1,25 +1,51 @@
-let check1=document.querySelector("#bir")
-let label1=document.querySelector(".bir")
-let check2=document.querySelector("#iki")
-let check3=document.querySelector("#üç")
-let check4=document.querySelector("#dört")
-let check5=document.querySelector("#beş")
-let check6=document.querySelector("#altı")
+var myNodelist=document.getElementsByTagName("li");
+var i;
+for(i=0;i<myNodelist.length;i++){
+    var span=document.createElement("SPAN");
+    var txt=document.createTextNode("\u00D7");
+    span.className="close";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+}
+var close=document.getElementsByClassName("close");
+var i;
+for(i=0;i<close.length;i++){
+    close[i].onclick=function(){
+        var div=this.parentElement;
+        div.style.display="none";
 
-let label1=document.querySelector(".bir")
-let label2=document.querySelector(".iki")
-let label3=document.querySelector(".üç")
-let label4=document.querySelector(".dört")
-let label5=document.querySelector(".beş")
-let label6=document.querySelector(".altı")
+    }
+}
+var list=document.querySelector("ul");
+list.addEventListener("click",function(ev){
+    if(ev.target.tagName==="LI"){
+        ev.target.classList.toggle("checked")
+    }
+},false)
 
-let result=document.querySelector(".result")
-let label=[label1,label2,label3,label4,label5,label6]
-let checkArray=[check1,check2,check3,check4,check5,check6];
-for(let i=0;i<checkArray.length;i++){
-checkArray[i].addEventListener("click",()=>{
-label[i].setAttribute("style","text-decoration:line-through");
+function newElement(){
+    var li =document.createElement("li");
+    var inputValue=document.getElementById("myInput").ariaValueMax;
+    var t=document.createTextNode(inputValue);
+    li.appendChild(t);
+    if(inputValue===""){
+        alert("you must write something!");
 
-})}
+    }else{
+        document.getElementById("myUL").appendChild(li);
+
+    }document.getElementById("myInput").value="";
 
 
+var span =document.createElement("SPAN");
+var txt=document.createTextNode("\u00D7");
+span.className="close";
+span.appendChild(txt);
+li.appendChild(span);
+
+for(i=0;i<close.length;i++){
+    close[i].onclick=function(){
+        var div=this.parentElement;
+        div.style.display="none"
+    }
+}}
